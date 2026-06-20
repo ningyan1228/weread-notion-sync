@@ -35,13 +35,13 @@
 - 可以查看阅读状态、阅读进度和分类
 - 点进书籍页面后，可以看到章节、划线和想法
 
-建议在仓库里放一张 Notion 书架截图，例如：
+ Notion 书架截图：
 
 ```text
 assets/preview.png
 ```
 
-然后在这里展示：
+
 
 
 ![效果预览](assets/preview.png)
