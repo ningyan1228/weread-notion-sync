@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>微信读书书架</title>
+    <meta name="description" content="从微信读书同步而来的个人阅读记录" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">WeRead Notion Shelf</p>
+          <h1>微信读书书架</h1>
+        </div>
+        <button class="refresh-button" id="refreshButton" type="button" title="刷新数据">刷新</button>
+      </header>
+
+      <section class="stats" aria-label="阅读统计">
+        <div class="stat">
+          <span class="stat-value" id="totalBooks">--</span>
+          <span class="stat-label">总书数</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="finishedBooks">--</span>
+          <span class="stat-label">读完</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="readingBooks">--</span>
+          <span class="stat-label">在读</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="highlightCount">--</span>
+          <span class="stat-label">划线</span>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="筛选工具">
+        <label class="search">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="书名、作者或分类" autocomplete="off" />
+        </label>
+        <label>
+          <span>状态</span>
+          <select id="statusFilter">
+            <option value="all">全部</option>
+            <option value="在读">在读</option>
+            <option value="读完">读完</option>
+            <option value="未读">未读</option>
+          </select>
+        </label>
+        <label>
+          <span>分类</span>
+          <select id="categoryFilter">
+            <option value="all">全部分类</option>
+          </select>
+        </label>
+        <label>
+          <span>排序</span>
+          <select id="sortSelect">
+            <option value="recent">最近更新</option>
+            <option value="progress">阅读进度</option>
+            <option value="highlights">划线数量</option>
+            <option value="title">书名</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="status-line" id="statusLine" aria-live="polite">正在读取书架...</section>
+
+      <section class="book-grid" id="bookGrid" aria-label="书籍列表"></section>
+    </main>
+
+    <template id="bookCardTemplate">
+      <article class="book-card">
+        <a class="cover-link" target="_blank" rel="noreferrer">
+          <div class="cover-wrap">
+            <img class="cover" alt="" loading="lazy" />
+            <div class="cover-fallback"></div>
+          </div>
+        </a>
+        <div class="book-body">
+          <div class="book-title-row">
+            <h2 class="book-title"></h2>
+            <span class="status-badge"></span>
+          </div>
+          <p class="book-author"></p>
+          <div class="progress-row">
+            <span class="progress-text"></span>
+            <span class="progress-ring" aria-hidden="true"></span>
+          </div>
+          <div class="category-list"></div>
+          <div class="meta-row">
+            <span class="highlight-meta"></span>
+            <span class="thought-meta"></span>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

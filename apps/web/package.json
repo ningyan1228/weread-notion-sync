@@ -1,0 +1,14 @@
+{
+  "name": "weread-notion-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "netlify-cli": "^17.36.0"
+  }
+}
