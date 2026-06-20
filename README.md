@@ -43,9 +43,9 @@ assets/preview.png
 
 然后在这里展示：
 
-```markdown
+
 ![效果预览](assets/preview.png)
-```
+
 
 ## 工作原理
 
