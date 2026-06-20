@@ -212,7 +212,7 @@ class NotionStore:
         if prop_type == "url":
             return {"url": str(value)}
         if prop_type == "date":
-            return {"date": {"start": _to_date(value), "time_zone": "Asia/Shanghai"}}
+            return {"date": {"start": _to_date(value)}}
         if prop_type == "checkbox":
             return {"checkbox": bool(value)}
         if prop_type == "select":
@@ -304,10 +304,10 @@ def _to_names(value: Any) -> List[str]:
 
 def _to_date(value: Any) -> str:
     if isinstance(value, (int, float)):
-        return datetime.fromtimestamp(value, tz=timezone.utc).strftime("%Y-%m-%d")
+        return datetime.fromtimestamp(value, tz=timezone.utc).isoformat()
     if isinstance(value, datetime):
-        return value.date().isoformat()
-        return str(value)
+        return value.isoformat()
+    return str(value)
 
 
 def create_template_database(token: str, parent_page: str) -> Dict[str, Any]:
