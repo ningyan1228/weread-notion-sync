@@ -1,0 +1,41 @@
+name: weread notion sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "setup creates the Notion database; sync imports WeRead data"
+        required: true
+        default: "sync"
+        type: choice
+        options:
+          - "sync"
+          - "setup"
+      full-sync:
+        description: "Resync all books instead of only new Sort items"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: WeRead to Notion
+        uses: ./
+        with:
+          weread-api-key: ${{ secrets.WEREAD_API_KEY }}
+          notion-token: ${{ secrets.NOTION_TOKEN }}
+          notion-page: ${{ secrets.NOTION_PAGE }}
+          notion-database-id: ${{ secrets.NOTION_DATABASE_ID }}
+          notion-data-source-id: ${{ secrets.NOTION_DATA_SOURCE_ID }}
+          full-sync: ${{ github.event.inputs.full-sync || 'false' }}
+          command: ${{ github.event.inputs.command || 'sync' }}
