@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weread-notion-sync"
+version = "0.1.0"
+description = "Sync WeRead books, highlights and notes to a Notion gallery database."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "weread-notion-sync contributors"}]
+dependencies = [
+  "notion-client>=2.2.1",
+  "python-dotenv>=1.0.1",
+  "requests>=2.31.0",
+  "retrying>=1.3.4",
+]
+
+[project.scripts]
+weread-notion = "weread_notion_sync.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
