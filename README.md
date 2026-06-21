@@ -28,24 +28,20 @@
 
 ## 效果预览
 
-同步后，你会得到一个 Notion Gallery 书架视图：
+同步后，你会得到一个 Notion Gallery 书架视图，也可以把同一份数据展示成公开网站：
 
 - 每本书是一张卡片
 - 卡片展示书籍封面
 - 可以查看阅读状态、阅读进度和分类
 - 点进书籍页面后，可以看到章节、划线和想法
 
-建议在仓库里放一张 Notion 书架截图，例如：
+### Notion 书架
 
-```text
-assets/preview.png
-```
+![Notion 书架效果预览](assets/notion-preview.png)
 
-然后在这里展示：
+### 网站书架
 
-```markdown
-![效果预览](assets/preview.png)
-```
+![网站书架效果预览](assets/website-preview.png)
 
 ## 工作原理
 
